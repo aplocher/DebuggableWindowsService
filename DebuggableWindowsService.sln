@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebuggableWindowsService", "DebuggableWindowsService\DebuggableWindowsService.csproj", "{7FCD680D-490B-485D-9592-E464E5E26F17}"
+EndProject
+Global
+	GlobalSection(CodealikeProperties) = postSolution
+		SolutionGuid = 1ddd08f9-be3f-434d-a9fc-d0f19e33d050
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FCD680D-490B-485D-9592-E464E5E26F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FCD680D-490B-485D-9592-E464E5E26F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FCD680D-490B-485D-9592-E464E5E26F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FCD680D-490B-485D-9592-E464E5E26F17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
