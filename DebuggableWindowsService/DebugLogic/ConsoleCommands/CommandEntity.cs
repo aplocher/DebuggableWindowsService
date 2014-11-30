@@ -7,18 +7,17 @@ namespace DebuggableWindowsService.DebugLogic.ConsoleCommands
     {
         public string Name { get; set; }
         public char CommandCharacter { get; set; }
-        //public bool IsCommandAvailable { get; set; }
         public string PerformingActionMessage { get; set; }
         public Action CommandAction { get; set; }
         public Func<bool> CommandAvailabilityLogic { get; set; }
+
         public bool IsCommandAvailable
         {
             get
             {
-                if (CommandAvailabilityLogic == null)
-                    return true;
-
-                return CommandAvailabilityLogic();
+                return
+                    this.CommandAvailabilityLogic == null ||
+                    this.CommandAvailabilityLogic();
             }
         }
 

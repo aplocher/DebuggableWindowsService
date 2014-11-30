@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DebuggableWindowsService.DebugLogic
 {
@@ -27,7 +23,6 @@ namespace DebuggableWindowsService.DebugLogic
         {
             ConsoleStartupStatus = Constants.StartupStatus.Stopped;
             ServiceDebugMode = Constants.ServiceDebugMode.Prompt;
-
         }
 
         public bool IsConsoleDebugMode { get; set; }
@@ -52,8 +47,9 @@ namespace DebuggableWindowsService.DebugLogic
 
                 if (arg.StartsWith(Constants.DebugConsoleStartupActionArg + "=", StringComparison.OrdinalIgnoreCase))
                 {
-                    ConsoleStartupStatus = arg.EndsWith("=" + Constants.DebugConsoleStartupActionStarted, StringComparison.OrdinalIgnoreCase) 
-                        ? Constants.StartupStatus.Started 
+                    ConsoleStartupStatus = arg.EndsWith("=" + Constants.DebugConsoleStartupActionStarted,
+                        StringComparison.OrdinalIgnoreCase)
+                        ? Constants.StartupStatus.Started
                         : Constants.StartupStatus.Stopped;
                 }
 
@@ -64,10 +60,9 @@ namespace DebuggableWindowsService.DebugLogic
 
                 if (arg.StartsWith(Constants.DebugServiceModeArg + "=", StringComparison.OrdinalIgnoreCase))
                 {
-                    ServiceDebugMode = arg.EndsWith("=" + Constants.DebugServiceModeWait) 
-                        ? Constants.ServiceDebugMode.Wait 
+                    ServiceDebugMode = arg.EndsWith("=" + Constants.DebugServiceModeWait)
+                        ? Constants.ServiceDebugMode.Wait
                         : Constants.ServiceDebugMode.Prompt;
-                    
                 }
             }
         }

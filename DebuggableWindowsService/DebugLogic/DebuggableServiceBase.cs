@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using DebuggableWindowsService.DebugLogic.ConsoleCommands;
 
 namespace DebuggableWindowsService.DebugLogic
 {
-    public class DebuggableServiceBase: ServiceBase
+    public class DebuggableServiceBase : ServiceBase
     {
         protected override void OnStart(string[] args)
         {

@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 using DebuggableWindowsService.DebugLogic;
 using DebuggableWindowsService.DebugLogic.DebugControllers;
 
 namespace DebuggableWindowsService
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -24,7 +19,7 @@ namespace DebuggableWindowsService
             }
             else
             {
-                var servicesToRun = new ServiceBase[] {new Service1()};
+                var servicesToRun = new ServiceBase[] { new Service1() };
                 ServiceBase.Run(servicesToRun);
             }
         }

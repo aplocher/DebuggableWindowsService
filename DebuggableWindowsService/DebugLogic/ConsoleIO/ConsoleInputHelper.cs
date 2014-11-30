@@ -1,33 +1,18 @@
 ﻿using System;
-using DebuggableWindowsService.DebugLogic.ConsoleCommands;
 
 namespace DebuggableWindowsService.DebugLogic.ConsoleIO
 {
     internal class ConsoleInputHelper
     {
-        public static void PromptForOptionInput()
+        public static char PromptForOptionInput()
         {
-            Console.WriteLine("---------------------------------------------------------------------");
+            Console.SetCursorPosition(0, 24);
             Console.Write("> ");
             var keyInfo = Console.ReadKey(true);
             Console.Write(char.ToUpperInvariant(keyInfo.KeyChar));
 
-            HandleInput(keyInfo.KeyChar);
-            Console.WriteLine("---------------------------------------------------------------------");
-        }
+            return keyInfo.KeyChar;
 
-        public static void HandleInput(char inputCharacter)
-        {
-            var command = CommandController.GetEntityFromCommandChar(inputCharacter);
-
-            if (command == null)
-            {
-                ConsoleOutputHelper.DisplayActionResponse("Invalid command");
-            }
-            else
-            {
-                command.RunAction();
-            }
         }
     }
 }

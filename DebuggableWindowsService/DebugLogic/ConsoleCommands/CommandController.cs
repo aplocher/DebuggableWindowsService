@@ -15,10 +15,7 @@ namespace DebuggableWindowsService.DebugLogic.ConsoleCommands
 
         public static List<CommandEntity> CommandEntityList
         {
-            get
-            {
-                return _commandEntityList;
-            }
+            get { return _commandEntityList; }
         }
 
         internal static void InitializeCommandEntityList(DebuggableServiceBase service)
@@ -27,46 +24,48 @@ namespace DebuggableWindowsService.DebugLogic.ConsoleCommands
             {
                 new CommandEntity
                 {
-                    CommandCharacter = '1', 
-                    Name = "Start", 
-                    CommandAvailabilityLogic = () => ServiceStatus != ServiceControllerStatus.Running, 
+                    CommandCharacter = '1',
+                    Name = "Start",
+                    CommandAvailabilityLogic = () => ServiceStatus != ServiceControllerStatus.Running,
                     PerformingActionMessage = "Starting service",
                     CommandAction = () => service.ConsoleStartService()
                 },
                 new CommandEntity
                 {
-                    CommandCharacter = '2', 
-                    Name = "Stop", 
-                    CommandAvailabilityLogic = () => ServiceStatus == ServiceControllerStatus.Running, 
+                    CommandCharacter = '2',
+                    Name = "Stop",
+                    CommandAvailabilityLogic = () => ServiceStatus == ServiceControllerStatus.Running,
                     PerformingActionMessage = "Stopping service",
                     CommandAction = () => service.ConsoleStopService()
                 },
                 new CommandEntity
                 {
-                    CommandCharacter = '3', 
-                    Name = "Pause", 
-                    CommandAvailabilityLogic = () => ServiceStatus == ServiceControllerStatus.Running && service.CanPauseAndContinue, 
+                    CommandCharacter = '3',
+                    Name = "Pause",
+                    CommandAvailabilityLogic =
+                        () => ServiceStatus == ServiceControllerStatus.Running && service.CanPauseAndContinue,
                     PerformingActionMessage = "Pausing service",
                     CommandAction = () => service.ConsolePauseService()
                 },
                 new CommandEntity
                 {
-                    CommandCharacter = '4', 
-                    Name = "Continue", 
-                    CommandAvailabilityLogic = () => ServiceStatus == ServiceControllerStatus.Paused && service.CanPauseAndContinue, 
+                    CommandCharacter = '4',
+                    Name = "Continue",
+                    CommandAvailabilityLogic =
+                        () => ServiceStatus == ServiceControllerStatus.Paused && service.CanPauseAndContinue,
                     PerformingActionMessage = "Resuming service",
                     CommandAction = () => service.ConsoleContinueService()
                 },
                 new CommandEntity
                 {
-                    CommandCharacter = 'H', 
-                    Name = "Help / Service Info", 
+                    CommandCharacter = 'H',
+                    Name = "Help / Service Info",
                     PerformingActionMessage = "Displaying information",
                     CommandAction = () => ConsoleOutputHelper.DisplayHelpInfo(service)
                 },
                 new CommandEntity
                 {
-                    CommandCharacter = 'Q', 
+                    CommandCharacter = 'Q',
                     Name = "Quit",
                     PerformingActionMessage = "Quiting",
                     CommandAction = () => ConsoleDebugController.QuitSignal()
@@ -76,10 +75,10 @@ namespace DebuggableWindowsService.DebugLogic.ConsoleCommands
             service.ConsoleStopService();
         }
 
-        
+
         public static string GetServiceStatusDescription()
         {
-            return Enum.GetName(typeof(ServiceControllerStatus), ServiceStatus);
+            return Enum.GetName(typeof (ServiceControllerStatus), ServiceStatus);
         }
 
         public static CommandEntity GetEntityFromCommandChar(char commandCharacter)
